@@ -9,7 +9,7 @@ def cargarModelo():
 
     VGG_H5_FILE = "vgg19.h5"
     RESNET_H5_FILE = "resnet50.h5"
-    MODEL_PATH = "../../models/keras/"
+    MODEL_PATH = "../../../models/keras/"
 
     # Cargar la RNA desde disco
     vgg_loaded_model = tf.keras.models.load_model(MODEL_PATH + VGG_H5_FILE)
