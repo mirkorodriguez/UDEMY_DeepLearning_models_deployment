@@ -4,7 +4,6 @@
 # Cargando modelo de disco
 # ------------------------
 import tensorflow as tf
-from tf.keras.models import load_model
 
 def cargarModelo():
 
@@ -13,8 +12,8 @@ def cargarModelo():
     MODEL_PATH = "../../models/keras/"
 
     # Cargar la RNA desde disco
-    vgg_loaded_model = load_model(MODEL_PATH + VGG_H5_FILE)
-    resnet_loaded_model = load_model(MODEL_PATH + RESNET_H5_FILE)
+    vgg_loaded_model = tf.keras.models.load_model(MODEL_PATH + VGG_H5_FILE)
+    resnet_loaded_model = tf.keras.models.load_model(MODEL_PATH + RESNET_H5_FILE)
     print(VGG_H5_FILE, " cargado de disco >> ", vgg_loaded_model)
     print(RESNET_H5_FILE, " cargado de disco >> ", resnet_loaded_model)
 

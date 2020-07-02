@@ -29,7 +29,7 @@ print ("Port recognized: ", port)
 #Initialize the application service
 app = Flask(__name__)
 CORS(app)
-global loaded_model, graph
+global vgg_loaded_model, resnet_loaded_model
 vgg_loaded_model, resnet_loaded_model = cargarModelo()
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
