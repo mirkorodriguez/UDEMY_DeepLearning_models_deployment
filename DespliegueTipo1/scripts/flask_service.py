@@ -86,25 +86,25 @@ def predict():
                 result = resnet_loaded_model.predict_proba(test_image)[0][0]
 
             # with graph.as_default():
-        	print(result)
+            print(result)
 
             # Resultados
-        	prediction = 1 if (result >= 0.5) else 0
-        	CLASSES = ['Normal', 'Covid19+']
+            prediction = 1 if (result >= 0.5) else 0
+            CLASSES = ['Normal', 'Covid19+']
 
-        	ClassPred = CLASSES[prediction]
-        	ClassProb = result
+            ClassPred = CLASSES[prediction]
+            ClassProb = result
 
-        	print("Pedicción:", ClassPred)
-        	print("Prob: {:.2%}".format(ClassProb))
+            print("Pedicción:", ClassPred)
+            print("Prob: {:.2%}".format(ClassProb))
 
-        	#Results as Json
-        	data["predictions"] = []
-        	r = {"label": ClassPred, "score": float(ClassProb)}
-        	data["predictions"].append(r)
+            #Results as Json
+            data["predictions"] = []
+            r = {"label": ClassPred, "score": float(ClassProb)}
+            data["predictions"].append(r)
 
-        	#Success
-        	data["success"] = True
+            #Success
+            data["success"] = True
 
     return jsonify(data)
 
