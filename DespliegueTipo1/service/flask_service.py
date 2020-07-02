@@ -8,14 +8,11 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-#Import tensorflow
+#Import Tensorflow
 import tensorflow as tf
 
-#Import python files
+#Import libraries
 import numpy as np
-
-import requests
-import json
 import os
 from werkzeug.utils import secure_filename
 from model_loader import cargarModelo
@@ -52,6 +49,7 @@ def resnet():
 
 
 
+# Funciones
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
@@ -85,7 +83,6 @@ def predict():
             if (model_name == 'resnet'):
                 result = resnet_loaded_model.predict_proba(test_image)[0][0]
 
-            # with graph.as_default():
             print(result)
 
             # Resultados
