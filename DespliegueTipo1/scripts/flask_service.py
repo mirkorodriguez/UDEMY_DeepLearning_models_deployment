@@ -79,10 +79,10 @@ def predict():
             test_image = test_image.astype('float32')
             test_image /= 255
 
-            if (model_name == 'vgg')
+            if (model_name == 'vgg'):
                 result = vgg_loaded_model.predict_proba(test_image)[0][0]
 
-            if (model_name == 'resnet')
+            if (model_name == 'resnet'):
                 result = resnet_loaded_model.predict_proba(test_image)[0][0]
 
             # with graph.as_default():
