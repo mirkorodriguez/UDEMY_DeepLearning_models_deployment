@@ -3,7 +3,7 @@
 # Download and save pretrained models as keras models *.h5
 import tensorflow as tf
 
-path_to_save = "../../models/keras/"
+path_to_save = "models/keras/"
 
 #Load and save the VGG model as *.h5 file
 vgg_model = tf.keras.applications.VGG19(weights='imagenet')
