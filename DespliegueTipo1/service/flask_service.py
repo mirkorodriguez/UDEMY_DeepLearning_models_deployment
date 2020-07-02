@@ -73,18 +73,18 @@ def predict(model_name):
 
             image_to_predict = tf.keras.preprocessing.image.load_img(filename, target_size=(224, 224))
             test_image = tf.keras.preprocessing.image.img_to_array(image_to_predict)
-            test_image = np.expand_dims(test_image, axis = 0)
+            test_image = np.expand_dims(test_image, axis = 0) # no es necesario normalizar /255.
 
 
             if (model_name == 'vgg'):
                 image = tf.keras.applications.vgg19.preprocess_input(test_image.copy())
-                predictions = vgg_loaded_model.predict(image)[0][0]
+                predictions = vgg_loaded_model.predict(image)
                 print(predictions)
                 labels = tf.keras.applications.vgg19.decode_predictions(predictions,top=5)
 
             if (model_name == 'resnet'):
                 image = tf.keras.applications.resnet50.preprocess_input(test_image.copy())
-                predictions = resnet_loaded_model.predict(test_image)[0][0]
+                predictions = resnet_loaded_model.predict(test_image)
                 print(predictions)
                 labels = tf.keras.applications.resnet50.decode_predictions(predictions,top=5)
 
