@@ -28,10 +28,12 @@ public class JettyModelLoaderTest extends AbstractHandler {
 
 	/** launch a web server on port 5000 */
 	public static void main(String[] args) throws Exception {
+		System.out.println("Inicializando Jetty server ...");
 		Server server = new Server(5003);
 		server.setHandler(new JettyModelLoaderTest());
 		server.start();
 		server.join();
+		System.out.println("Jetty server inicializado");
 	}
 
 	/** Loads the Keras Model **/
