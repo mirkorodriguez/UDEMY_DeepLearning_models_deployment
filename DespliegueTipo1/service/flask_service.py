@@ -72,7 +72,7 @@ def predict():
             ClassProb = result[index]
 
             print("Classes:", CLASSES)
-			print("Predictions",predictions)
+            print("Predictions",predictions)
             print("Predicción Index:", index)
             print("Predicción Label:", ClassPred)
             print("Predicción Prob: {:.2%}".format(ClassProb))
