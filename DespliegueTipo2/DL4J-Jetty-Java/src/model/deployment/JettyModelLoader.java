@@ -1,7 +1,13 @@
+//mvn clean compile package install
+//mvn exec:java -Dexec.mainClass="model.deployment.JettyModelLoader" -Dexec.args="5005"
+
 package model.deployment;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -17,27 +23,54 @@ import org.nd4j.linalg.factory.Nd4j;
 
 public class JettyModelLoader extends AbstractHandler {
 
-	/** the model loaded from Keras **/
+	private Properties prop;
+	
+	private String propFileName; 
+	
+	private InputStream inputStream;
+	
 	private MultiLayerNetwork model;
 
-	/** the number of input parameters in the Keras model **/
 	private static int numberInputs = 10;
 
-	/** launch a web server on port 5000 */
+	// Jetty server initializer
 	public static void main(String[] args) throws Exception {
-		Server server = new Server(5002);
+		int portNumber = Integer.valueOf(args[0]);
+		System.out.println("\n\nInicializando Jetty server en el pueto "+portNumber+" ...");
+		Server server = new Server(portNumber);
 		server.setHandler(new JettyModelLoader());
 		server.start();
+		System.out.println("Jetty server inicializado");
 		server.join();
 	}
 
-	/** Loads the Keras Model **/
+
 	public JettyModelLoader() throws Exception {
-		String modelKerasH5Full = "/home/mirko/Desktop/ModelH5/games.h5";
-		File modelFile = new File(modelKerasH5Full);
-		model = KerasModelImport.importKerasSequentialModelAndWeights(modelFile.getPath());
-		System.out.println("model: " + model);
+		
+		prop = new Properties();
+		propFileName = "model.properties";
+
+		inputStream = getClass().getClassLoader().getResourceAsStream("model.properties");
+
+		if (inputStream != null) {
+			prop.load(inputStream);
+		} else {
+			throw new FileNotFoundException("Property file '" + propFileName + "' not found in the classpath.");
+		}
+		
+		// get the property value
+		String modelKerasH5 = prop.getProperty("modelh5");
+					
+		File modelFile = new File(modelKerasH5);
+		if(!modelFile.isFile()){
+			throw new FileNotFoundException("Model file '" + modelFile.getAbsolutePath() + "' not found.");
+		}
+		
+		model = KerasModelImport.importKerasSequentialModelAndWeights(modelFile.getAbsolutePath());
+		System.out.println(" >>Model file loaded: " + modelFile.getAbsolutePath());
+		System.out.println(" >>Model instance loaded: " + model);
 	}
+
 
 	@Override
 	public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response)

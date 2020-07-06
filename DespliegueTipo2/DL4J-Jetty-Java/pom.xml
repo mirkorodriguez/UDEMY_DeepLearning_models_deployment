@@ -47,6 +47,11 @@
 
 	<build>
 		<sourceDirectory>${basedir}/src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>${basedir}/resources</directory>
+			</resource>
+		</resources>
 	</build>
 
 </project>
