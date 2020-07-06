@@ -1,21 +1,22 @@
 # Developed by Mirko J. Rodríguez mirko.rodriguezm@gmail.com
 
-$environment=$1
-$FOLDER=$2
+environment=$1
+FOLDER=$2
 
-echo "Conda env: $environment"
-echo "Folder to download: $FOLDER"
-# Activate environment
-conda activate $environment
+echo "Conda Env: $environment"
+echo "Folder to Download: $FOLDER"
 # borrar carpetas
 rm -rf "$FOLDER/*"
 
 echo "Iniciando descarga ..."
+conda activate $environment
 pip install gdown
-gdown --id 1mXeqvGcbIlW419F1N2QD1XXvEeMlKawO -O "$FOLDER/"
-# https://drive.google.com/drive/folders/1mXeqvGcbIlW419F1N2QD1XXvEeMlKawO?usp=sharing
-
-# Deactivate current environment
+cd $FOLDER
+gdown --id 1-0zntKNE1YWZYpY6ruwUmbkYWq8Vi1D9 -O model.zip
+# https://drive.google.com/file/d/1-0zntKNE1YWZYpY6ruwUmbkYWq8Vi1D9/view?usp=sharing
+gunzip model.zip
 conda deactivate
 
+# Listar archivos
+cd $FOLDER
 ls -l $FOLDER
