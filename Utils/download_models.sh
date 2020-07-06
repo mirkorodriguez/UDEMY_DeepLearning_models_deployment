@@ -12,11 +12,14 @@ echo "Iniciando descarga ..."
 conda activate $environment
 pip install gdown
 cd $FOLDER
-gdown --id 1-0zntKNE1YWZYpY6ruwUmbkYWq8Vi1D9 -O model.zip
-# https://drive.google.com/file/d/1-0zntKNE1YWZYpY6ruwUmbkYWq8Vi1D9/view?usp=sharing
-gunzip model.zip
+gdown --id 1-4cedRIuBML-o2ApLgqUj61QoXSAarBM -O model.zip
+# https://drive.google.com/file/d/1-4cedRIuBML-o2ApLgqUj61QoXSAarBM/view?usp=sharing
 conda deactivate
 
-# Listar archivos
-cd $FOLDER
-ls -l $FOLDER
+# Descomprimit archivos
+unzip model.zip
+# Borrar archivo zip
+rm -rf model.zip
+cd ~
+
+echo "Completado ..."
