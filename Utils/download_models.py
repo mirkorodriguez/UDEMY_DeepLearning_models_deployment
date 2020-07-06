@@ -1,6 +1,6 @@
 # Developed by Mirko J. Rodríguez mirko.rodriguezm@gmail.com
 
-# Download and save pretrained models as keras models *.h5
+# Download pretrained models as keras models *.h5 and tensorflow *.pb
 import tensorflow as tf
 
 path_to_save = "models/keras/"
