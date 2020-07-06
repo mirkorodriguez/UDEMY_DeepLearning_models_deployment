@@ -1,6 +1,7 @@
-//mvn install //No es necesario
+
+//mvn install
 //mvn exec:java -Dexec.mainClass="model.deployment.JettyModelLoaderTest"
-//
+//http://localhost:8080/?G1=1&G2=0&G3=1&G4=1&G5=0&G6=1&G7=0&G8=1&G9=1&G10=1
 
 package model.deployment;
 
