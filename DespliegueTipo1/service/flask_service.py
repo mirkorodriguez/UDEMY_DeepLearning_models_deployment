@@ -79,13 +79,13 @@ def predict(model_name):
             if (model_name == 'vgg'):
                 image = tf.keras.applications.vgg19.preprocess_input(test_image.copy())
                 predictions = vgg_loaded_model.predict(image)
-                print(predictions)
+                # print(predictions)
                 labels = tf.keras.applications.vgg19.decode_predictions(predictions,top=5)
 
             if (model_name == 'resnet'):
                 image = tf.keras.applications.resnet50.preprocess_input(test_image.copy())
                 predictions = resnet_loaded_model.predict(test_image)
-                print(predictions)
+                # print(predictions)
                 labels = tf.keras.applications.resnet50.decode_predictions(predictions,top=5)
 
             print(labels)
