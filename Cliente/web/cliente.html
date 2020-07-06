@@ -12,7 +12,7 @@
 <body ng-app="myApp" ng-cloak bgcolor="black" ng-controller="myCtrl" layout="column">
   <md-toolbar>
     <div class="md-toolbar-tools">
-      <span>Clasificar Imagen</span>
+      <span>Clasificar Flores</span>
     </div>
   </md-toolbar>
 
@@ -26,14 +26,6 @@
 
         <div  layout="column" layout-align="space-between center">
           <img id="imagen" class="img-responsive"/>
-        </div>
-
-        <div layout="row" layout-align="space-between center" style="height: 32px; min-height: 32px;">
-          <span style="font-weight:bold;font-size:13">Modelo Pre-entrenado:</span>
-          <md-select style="font-size:13; " ng-model="modelo" placeholder="Seleccionar" required>
-            <md-option value="vgg">VGG 19</md-option>
-            <md-option value="resnet">ResNet 50</md-option>
-          </md-select>
         </div>
 
       </md-card-content>
@@ -107,7 +99,7 @@
           var formData = new FormData(myform);
           console.log(myform)
 
-          URI_final = $scope.rp + "/" + $scope.modelo + "/predict/";
+          URI_final = $scope.rp + "/model/predict/";
           console.log(URI_final);
           console.log("Calling ...");
           $http({
