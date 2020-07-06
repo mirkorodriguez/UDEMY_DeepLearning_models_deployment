@@ -69,7 +69,7 @@ def predict():
             index = np.argmax(predictions)
             CLASSES = ['Daisy', 'Dandelion', 'Rosa', 'Girasol', 'Tulipán']
             ClassPred = CLASSES[index]
-            ClassProb = result[index]
+            ClassProb = predictions[index]
 
             print("Classes:", CLASSES)
             print("Predictions",predictions)
