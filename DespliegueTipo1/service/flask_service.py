@@ -27,7 +27,7 @@ print ("Port recognized: ", port)
 app = Flask(__name__)
 CORS(app)
 global loaded_model
-loaded_model = cargarModelo()
+loaded_model = cargarModeloH5()
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Funciones
