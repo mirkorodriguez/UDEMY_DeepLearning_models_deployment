@@ -1,3 +1,6 @@
+//mvn install
+//mvn exec:java -Dexec.mainClass="model.deployment.JettyModelLoaderTest"
+
 package model.deployment;
 
 import java.io.File;
