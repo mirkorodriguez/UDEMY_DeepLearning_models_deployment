@@ -1,5 +1,6 @@
-//mvn install
+//mvn install //No es necesario
 //mvn exec:java -Dexec.mainClass="model.deployment.JettyModelLoaderTest"
+//
 
 package model.deployment;
 
@@ -28,8 +29,9 @@ public class JettyModelLoaderTest extends AbstractHandler {
 
 	/** launch a web server on port 5000 */
 	public static void main(String[] args) throws Exception {
-		System.out.println("Inicializando Jetty server ...");
-		Server server = new Server(5003);
+		int portNumber = Integer.valueOf(args[0]);
+		System.out.println("Inicializando Jetty server en el pueto "+portNumber+"...");
+		Server server = new Server(portNumber);
 		server.setHandler(new JettyModelLoaderTest());
 		server.start();
 		System.out.println("Jetty server inicializado");
