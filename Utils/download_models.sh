@@ -11,10 +11,11 @@ conda activate $environment
 rm -rf "$FOLDER/*"
 
 echo "Iniciando descarga ..."
+pip install gdown
 gdown --id 1mXeqvGcbIlW419F1N2QD1XXvEeMlKawO -O "$FOLDER/"
 # https://drive.google.com/drive/folders/1mXeqvGcbIlW419F1N2QD1XXvEeMlKawO?usp=sharing
 
 # Deactivate current environment
 conda deactivate
 
-tree $FOLDER
+ls -l $FOLDER
