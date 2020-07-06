@@ -32,8 +32,8 @@ public class JettyModelLoaderTest extends AbstractHandler {
 		Server server = new Server(5003);
 		server.setHandler(new JettyModelLoaderTest());
 		server.start();
-		server.join();
 		System.out.println("Jetty server inicializado");
+		server.join();
 	}
 
 	/** Loads the Keras Model **/
