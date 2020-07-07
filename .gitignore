@@ -5,3 +5,4 @@ RemoteSystemsTempFiles
 target
 .classpath
 .project
+.recommenders
