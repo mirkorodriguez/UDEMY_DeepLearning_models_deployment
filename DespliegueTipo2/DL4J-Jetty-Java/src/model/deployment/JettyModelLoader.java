@@ -80,6 +80,7 @@ public class JettyModelLoader extends AbstractHandler {
 //		enforceTrainingConfig=false
 //		Cloud DataFlow: Provides autoscaling for batch predictions on GCP
 //		https://towardsdatascience.com/deploying-keras-deep-learning-models-with-java-62d80464f34a
+//		https://community.konduit.ai/t/error-importing-tf-keras-xception-model/232/2
 		model = KerasModelImport.importKerasSequentialModelAndWeights(modelFile.getAbsolutePath());
 		System.out.println(" >>Model file loaded: " + modelFile.getAbsolutePath());
 		System.out.println(" >>Model instance loaded: " + model);
